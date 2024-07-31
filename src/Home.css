@@ -1,0 +1,35 @@
+.titlecase {
+    text-align: center;
+    font-size: 50px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.loginRedirectButtonContainer {
+    padding: 20px;
+    text-align: center;
+}
+
+.loginRedirectButton {
+    font-size: 20px;
+    padding : 10px;
+}
+
+.createButtonContainer {
+    text-align: center;
+    padding : 10px;
+}
+
+.createButton {
+    font-size : 20px;
+    padding : 10px;
+}
+
+.newUserButtonContainer {
+    padding:10px;
+    text-align:center;
+}
+
+.newUserButton {
+    font-size : 20px;
+    padding : 10px;
+}

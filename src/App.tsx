@@ -1,58 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, {useState} from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './Home';
+import { Login } from './LoginPage';
+import { Create } from './CreateSet';
+import { NewUser } from './NewUser';
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedUser, setLoggedUser] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route 
+          path = "/"
+          element = {<Home loggedIn = {loggedIn} setLoggedIn={setLoggedIn} loggedUser = {loggedUser} setLoggedUser = {setLoggedUser}/>}
+        >
+        </Route>
+        <Route path = "/login" element = {<Login setLoggedIn = {setLoggedIn} setLoggedUser={setLoggedUser}/>}>
+        </Route>
+        <Route
+          path = "/create"
+          element = {<Create loggedIn = {loggedIn}/>}
+        >
+        </Route>
+        <Route
+          path = "/new"
+          element = {<NewUser setLoggedIn = {setLoggedIn} setLoggedUser = {setLoggedUser}/>}
+        >
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
